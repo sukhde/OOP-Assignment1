@@ -100,6 +100,7 @@ namespace OOP_RPG
         }
         
         public void Win() {
+            this.hero.Gold = this.hero.Gold + this.monster.Gold;
             Console.WriteLine(monster.Name + " has been defeated! You win the battle!");
             game.Main();
         }
