@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  oop_rpg:
+    image: ${DOCKER_REGISTRY}ooprpg
+    build:
+      context: .\OOP_RPG
+      dockerfile: Dockerfile
