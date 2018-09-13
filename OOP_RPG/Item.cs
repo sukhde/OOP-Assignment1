@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOP_RPG
 {
-    interface Item
+    interface IItem
     {
+        int OriginalValue { get; set; }
+        int ResellValue { get; set; }
     }
 }
