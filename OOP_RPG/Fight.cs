@@ -15,10 +15,10 @@ namespace OOP_RPG
             this.Monsters = new List<Monster>();
             this.hero = hero;
             this.game = game;
-            this.AddMonster("Squid", 9, 8, 20);
-            this.AddMonster("Nord", 5, 7, 10);
-            this.AddMonster("Bonmer", 6, 3, 15);
-            this.AddMonster("Donnde", 6, 4, 18);
+            this.AddMonster("Squid", 9, 8, 20,22);
+            this.AddMonster("Nord", 5, 7, 10,15);
+            this.AddMonster("Bonmer", 6, 3, 15,18);
+            this.AddMonster("Donnde", 6, 4, 18,21);
             var enemy = this.Monsters[0];
             var Secondenemy = this.Monsters.ElementAt(1);
             var Lastenemy = this.Monsters.LastOrDefault();
@@ -33,8 +33,8 @@ namespace OOP_RPG
             this.monster = randomEnemy;
         }
         
-        public void AddMonster(string name, int strength, int defense, int hp) {
-            var monster = new Monster(name,strength,defense,hp);
+        public void AddMonster(string name, int strength, int defense, int hp,int Speed) {
+            var monster = new Monster(name,strength,defense,hp,Speed);
             
             this.Monsters.Add(monster);
         }
@@ -101,6 +101,17 @@ namespace OOP_RPG
         
         public void Win() {
             this.hero.Gold = this.hero.Gold + this.monster.Gold;
+
+
+            if (this.hero.Speed > this.monster.Speed)
+            {
+                this.Win();
+            }
+            else
+            {
+                Console.WriteLine("No more speed");
+                this.Start();
+            }
             Console.WriteLine(monster.Name + " has been defeated! You win the battle!");
             game.Main();
         }
