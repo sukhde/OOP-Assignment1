@@ -36,12 +36,22 @@ namespace OOP_RPG
             else if (input == "3") {
                 this.Fight();
             }
+            else if (input == "4")
+            {
+                this.Shop();
+            }
             
             else {
                 return;
             }
         }
-        
+
+        private void Shop()
+        {
+            var MyShop = new Shop(this.hero, this);
+            MyShop.Menu();
+        }
+
         public void Stats() {
             hero.ShowStats();
             Console.WriteLine("Press any key to return to main menu.");

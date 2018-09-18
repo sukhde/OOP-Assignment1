@@ -66,7 +66,6 @@ namespace OOP_RPG
                 Console.WriteLine(a.Name + " of " + a.Defense + " Defense");
             }
         }
-        
         public void EquipWeapon() {
             if(WeaponsBag.Any()) {
                 this.EquippedWeapon = this.WeaponsBag[0];
@@ -79,6 +78,29 @@ namespace OOP_RPG
             }
             
         }
-        
+        public void Equip()
+        {
+            
+           
+            Console.WriteLine("1. Regain Hp");
+            var input = Console.ReadLine();
+            if (input == "1")
+             {
+                if (this.PotionBag.Count != 0)
+                {
+                    this.CurrentHP += this.PotionBag[0].HP;
+                    Console.WriteLine("you have now");
+                    this.PotionBag.RemoveAt(0);
+                }
+                else
+                {
+                    Console.WriteLine("Sorry !! No more Hp");
+                }
+               
+            }
+        }
+
     }
 }
+
+

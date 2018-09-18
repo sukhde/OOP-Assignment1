@@ -14,7 +14,7 @@ namespace OOP_RPG
         public List<potion> potion { get; set; }
 
 
-        public Shop()
+        public Shop(Hero hero, Game game)
         {
             this.weapon = new List<Weapon>();
             this.armor = new List<Armor>();
@@ -28,6 +28,42 @@ namespace OOP_RPG
             potion.Add(new potion("Healing Potion", 5, 5, 2));
         }
 
+        public void Menu()
+        {
+            Console.WriteLine("Welcome to my shop!!!what you want");
+            Console.WriteLine("1.Buy Item");
+            Console.WriteLine("2.Sell Item");
+            Console.WriteLine("3.Return to Game Menu");
+            var value = Console.ReadLine();
+            if (value == "1")
+            {
+                this.ShowInventory();
+            }
+            else if (value == "2")
+            {
+                this.BuyFromUser();
+            }
+            else
+            {
+                return;
+            }
 
-    }
-}
+        }
+
+      
+        public void ShowInventory()
+        {
+
+            Console.WriteLine("1. Weapons");
+            Console.WriteLine("2. Armors");
+            Console.WriteLine("3. Potions");
+            var value = Console.ReadLine();
+         
+        }
+        public void BuyFromUser()
+        {
+
+        }
+            }
+        }
+   
